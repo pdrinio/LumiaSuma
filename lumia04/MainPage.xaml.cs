@@ -1,4 +1,6 @@
 ﻿using Windows.Media.SpeechSynthesis;
+using Windows.Media.SpeechRecognition;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
