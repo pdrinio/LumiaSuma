@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="lumia04.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:lumia04"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource AppBarItemForegroundThemeBrush}">
+        <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Height="69" Margin="92,10,0,0" TextWrapping="Wrap" Text="SUMAS" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="48"/>
+        <TextBlock x:Name="txbOperando1" HorizontalAlignment="Left" Height="111" Margin="141,103,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbOperando2" HorizontalAlignment="Left" Height="111" Margin="141,239,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbSigno" HorizontalAlignment="Left" Height="111" Margin="76,179,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbLinea" HorizontalAlignment="Left" Height="111" Margin="22,333,0,0" TextWrapping="Wrap" Text="------------------" VerticalAlignment="Top" Width="303" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbResultado" HorizontalAlignment="Left" Height="111" Margin="141,444,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
+        
+        <MediaElement Name="media"  Visibility="Collapsed"/>
+    </Grid>
+</Page>
