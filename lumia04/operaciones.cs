@@ -8,7 +8,7 @@ namespace lumia04
 {
     class operaciones
     {
-        int _nOperando1, _nOperando2, _nResultado;
+        int _nOperando1, _nOperando2, _nResultadoCorrecto, _nResultado1, _nResultado2;
         public Random rnd = new Random();
 
         public int nOperando1
@@ -26,14 +26,29 @@ namespace lumia04
                 return _nOperando2;
             }
         }
-        public int nResultado
+        public int nResultadoCorrecto
         {
             get
             {
-                return _nResultado;
+                return _nResultadoCorrecto;
             }
         }
 
+        public int nResultado1
+        {
+            get
+            {
+                return _nResultado1;
+            }
+        }
+
+        public int nResultado2
+        {
+            get
+            {
+                return _nResultado2;
+            }
+        }
 
         public void calculaSuma()
         {
@@ -56,7 +71,10 @@ namespace lumia04
 
             _nOperando2 = rnd.Next(0, 9);
 
-            _nResultado = _nOperando1 + _nOperando2;
+            _nResultadoCorrecto = _nOperando1 + _nOperando2; //calculamos la suma de verdad
+
+            _nResultado1 = rnd.Next(0, 9); //...y otras dos posibles (erróneas), sumas)
+            _nResultado2 = rnd.Next(0, 9); 
         }
 
 
@@ -64,7 +82,9 @@ namespace lumia04
         {
             this._nOperando1 = 0;
             this._nOperando2 = 0;
-            this._nResultado = 0;
+            this._nResultadoCorrecto = 0;
+            this._nResultado1 = 0;
+            this._nResultado2 = 0;
         }
 
     }

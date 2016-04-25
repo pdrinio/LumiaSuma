@@ -8,13 +8,19 @@
     mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid Background="{ThemeResource AppBarItemForegroundThemeBrush}">
-        <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Height="69" Margin="92,10,0,0" TextWrapping="Wrap" Text="SUMAS" VerticalAlignment="Top" Width="181" Foreground="White" FontSize="48"/>
-        <TextBlock x:Name="txbOperando1" HorizontalAlignment="Left" Height="111" Margin="141,103,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
-        <TextBlock x:Name="txbOperando2" HorizontalAlignment="Left" Height="111" Margin="141,239,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
-        <TextBlock x:Name="txbSigno" HorizontalAlignment="Left" Height="111" Margin="76,179,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
-        <TextBlock x:Name="txbLinea" HorizontalAlignment="Left" Height="111" Margin="22,333,0,0" TextWrapping="Wrap" Text="------------------" VerticalAlignment="Top" Width="303" Foreground="White" FontSize="72"/>
-        <TextBlock x:Name="txbResultado" HorizontalAlignment="Left" Height="111" Margin="141,444,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
-        
+        <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Height="49" Margin="97,10,0,0" TextWrapping="Wrap" Text="SUMAS" VerticalAlignment="Top" Width="138" Foreground="White" FontSize="40"/>
+        <TextBlock x:Name="txbOperando1" HorizontalAlignment="Left" Height="76" Margin="141,78,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
+        <TextBlock x:Name="txbOperando2" HorizontalAlignment="Left" Height="111" Margin="141,199,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
+        <TextBlock x:Name="txbSigno" HorizontalAlignment="Left" Height="111" Margin="76,139,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbLinea" HorizontalAlignment="Left" Height="111" Margin="22,258,0,0" TextWrapping="Wrap" Text="------------------" VerticalAlignment="Top" Width="303" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbResultado" HorizontalAlignment="Left" Height="111" Margin="116,334,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72" FontWeight="Bold"/>
+
         <MediaElement Name="media"  Visibility="Collapsed"/>
+
+        <Grid HorizontalAlignment="Center">
+            <Button x:Name="btnIzquierda" HorizontalAlignment="Center" Height="110" Content="10" FontSize="72" Foreground="White" Margin="1,455,249,75" Width="110"></Button>
+            <Button x:Name="btnCentro" HorizontalAlignment="Center" Height="110" Content="10" FontSize="72" Foreground="White" Margin="106,455,144,75" Width="110"/>
+            <Button x:Name="btnDerecha" HorizontalAlignment="Center" Height="110" Content="10" FontSize="72" Foreground="White" Margin="236,455,25,75" Width="99"/>
+        </Grid>
     </Grid>
 </Page>

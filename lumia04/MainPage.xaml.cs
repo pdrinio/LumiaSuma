@@ -44,7 +44,12 @@ namespace lumia04
             this.txbOperando1.Text = _operacion.nOperando1.ToString();
             this.txbOperando2.Text = _operacion.nOperando2.ToString();
             this.txbResultado.Text = "?";
+
+            this.btnIzquierda.Content = _operacion.nResultado1.ToString();
+            this.btnDerecha.Content = _operacion.nResultado2.ToString();
+            this.btnCentro.Content = _operacion.nResultadoCorrecto.ToString();
         }
+
 
         private void reta()
         {
@@ -54,6 +59,7 @@ namespace lumia04
 
             dime("Cuál es el resultado?");
         }
+
 
         private async void dime(string message)
         {
