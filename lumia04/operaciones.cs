@@ -8,10 +8,11 @@ namespace lumia04
 {
     class operaciones
     {
-        int _nOperando1, _nOperando2, _nResultadoCorrecto, _nResultado1, _nResultado2;
+        int _nOperando1, _nOperando2, _nResultadoCorrecto, _nResultado1, _nResultado2, _nResultado3;
         public Random rnd = new Random();
 
-        public int nOperando1
+        /* Operandos */
+        public int nOperando1 //primer operando de la operación
         {
             get
             {
@@ -19,13 +20,15 @@ namespace lumia04
             }
         }
 
-        public int nOperando2
+        public int nOperando2 //segundo operando de la operación
         {
             get
             {
                 return _nOperando2;
             }
         }
+
+        /* Resultados */
         public int nResultadoCorrecto
         {
             get
@@ -50,7 +53,15 @@ namespace lumia04
             }
         }
 
-        public void calculaSuma()
+        public int nResultado3
+        {
+            get
+            {
+                return _nResultado3;
+            }
+        }
+
+        public void calculaSuma() //calculamos la suma
         {
           for (int i = 0; i < 1000; i++)     //vamos a randomizar mejor
             {
@@ -73,8 +84,9 @@ namespace lumia04
 
             _nResultadoCorrecto = _nOperando1 + _nOperando2; //calculamos la suma de verdad
 
-            _nResultado1 = rnd.Next(0, 9); //...y otras dos posibles (erróneas), sumas)
-            _nResultado2 = rnd.Next(0, 9); 
+            _nResultado1 = rnd.Next(0, 9); //...y otras tres posibles (erróneas), sumas)
+            _nResultado2 = rnd.Next(0, 9);
+            _nResultado3 = rnd.Next(0, 9);
         }
 
 

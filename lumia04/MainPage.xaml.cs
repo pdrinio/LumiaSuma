@@ -26,6 +26,7 @@ namespace lumia04
     public sealed partial class MainPage : Page
     {
         public SpeechSynthesizer sinte = new SpeechSynthesizer();
+        datos _datos;
 
         public MainPage()
         {
@@ -39,25 +40,27 @@ namespace lumia04
 
         }
 
-        private void actualizaReto(operaciones _operacion)
+        private void actualizaReto(datos _datos)
         {
-            this.txbOperando1.Text = _operacion.nOperando1.ToString();
-            this.txbOperando2.Text = _operacion.nOperando2.ToString();
+            this.txbOperando1.Text = _datos.nOperando1.ToString();
+            this.txbOperando2.Text = _datos.nOperando2.ToString();
+                        
             this.txbResultado.Text = "?";
 
-            this.btnIzquierda.Content = _operacion.nResultado1.ToString();
-            this.btnDerecha.Content = _operacion.nResultado2.ToString();
-            this.btnCentro.Content = _operacion.nResultadoCorrecto.ToString();
+            this.btnIzquierda.Content = _datos.nResultadosPosibles[0].ToString();
+            this.btnCentro.Content = _datos.nResultadosPosibles[1].ToString();
+            this.btnDerecha.Content = _datos.nResultadosPosibles[2].ToString();
+                
         }
 
 
         private void reta()
         {
-            operaciones _operacion = new operaciones(); //creo el objeto
-            _operacion.calculaSuma(); //que genere su juego de datos
-            actualizaReto(_operacion); //muestro en pantalla
+            _datos = new datos(); //creo el ojebto
+            _datos.calculaValores(); // genero el juego de datos
+            actualizaReto(_datos); // muestro en pantalla  
 
-            dime("Cuál es el resultado?");
+            dime("¿Cuál es el resultado?");
         }
 
 
@@ -68,5 +71,47 @@ namespace lumia04
             media.Play();   
 
         }
+
+        private void btnIzquierda_Click(object sender, RoutedEventArgs e)
+        {
+            //preguntarle al usuario...
+            String szRespuesta = ((Button)sender).Content.ToString();
+            dime("¿" + szRespuesta + "?");
+            
+
+            // y comprobarlo
+            comprueba(Int32.Parse(((Button)sender).Content.ToString()));
+        }
+
+
+
+        private void btnCentro_Click(object sender, RoutedEventArgs e)
+        {
+            //preguntarle al usuario...
+            String szRespuesta = ((Button)sender).Content.ToString();
+            dime("¿" + szRespuesta + "?");
+
+            // y comprobarlo
+            comprueba(Int32.Parse(((Button)sender).Content.ToString()));
+
+        }
+
+        private void btnDerecha_Click(object sender, RoutedEventArgs e)
+        {
+            //preguntarle al usuario...
+            String szRespuesta = ((Button)sender).Content.ToString();
+            dime("¿" + szRespuesta + "?");
+
+            // y comprobarlo
+            comprueba(Int32.Parse(((Button)sender).Content.ToString()));
+
+
+        }
+        private void comprueba(int nRespuesta)
+        {
+            if (nRespuesta == _datos.nResultadoCorrecto) { dime("Bien!!!!."); }
+            else dime("Me temo que no.");
+        }
+
     }
 }
