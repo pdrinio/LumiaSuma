@@ -1,5 +1,6 @@
 ﻿using Windows.Media.SpeechSynthesis;
 using Windows.Media.SpeechRecognition;
+using System.Threading.Tasks;
 
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace lumia04
@@ -25,8 +27,10 @@ namespace lumia04
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public SpeechSynthesizer sinte = new SpeechSynthesizer();
-        datos _datos;
+        public SpeechSynthesizer sinte = new SpeechSynthesizer(); //para el dime()
+        datos _datos;   //objeto local de datos
+        int nEspera = 1500; //tiempo en milisegundos de espera entre un reto y el otro
+
 
         public MainPage()
         {
@@ -104,13 +108,21 @@ namespace lumia04
 
             // y comprobarlo
             comprueba(Int32.Parse(((Button)sender).Content.ToString()));
-
-
         }
-        private void comprueba(int nRespuesta)
+
+        private async void comprueba(int nRespuesta)
         {
-            if (nRespuesta == _datos.nResultadoCorrecto) { dime("Bien!!!!."); }
+            if (nRespuesta == _datos.nResultadoCorrecto) {
+                dime("Bien!!!!.");
+                await espera(); //espera un poco, para dar impacto
+                reta();         //y vuelve a empezar
+            }
             else dime("Me temo que no.");
+        }
+
+        async Task espera()
+        {
+            await Task.Delay(nEspera);
         }
 
     }

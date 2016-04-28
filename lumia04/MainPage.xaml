@@ -8,7 +8,7 @@
     mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid Background="{ThemeResource AppBarItemForegroundThemeBrush}">
-        <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Height="49" Margin="97,10,0,0" TextWrapping="Wrap" Text="SUMAS" VerticalAlignment="Top" Width="138" Foreground="White" FontSize="40"/>
+        <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Height="49" Margin="76,10,0,0" TextWrapping="Wrap" Text="SUMAS" VerticalAlignment="Top" Width="164" Foreground="White" FontSize="40" FontWeight="Bold"/>
         <TextBlock x:Name="txbOperando1" HorizontalAlignment="Left" Height="76" Margin="151,78,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
         <TextBlock x:Name="txbOperando2" HorizontalAlignment="Left" Height="111" Margin="151,199,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
         <TextBlock x:Name="txbSigno" HorizontalAlignment="Left" Height="111" Margin="76,139,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
