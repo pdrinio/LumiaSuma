@@ -68,11 +68,11 @@ namespace lumia04
         }
 
 
-        private async void dime(string message)
+        private async  void dime(string message)
         {
             var stream = await sinte.SynthesizeTextToStreamAsync(message);
             media.SetSource(stream, stream.ContentType);
-            media.Play();   
+            media.Play();
 
         }
 

@@ -12,7 +12,7 @@ namespace lumia04
         public int[] _nResultadosPosibles = new int[3]; //dos aleatorios, y el bueno (en un orden aleatorio); son las 3 posibilidades que se le dan
         int _nResultadoCorrecto; 
         int _nOperando1, _nOperando2;  //operandos aleatorios
-        int nPosicion; //posición del array donde vamos poniendo los valores 
+        
 
         /* Properties de Operandos */
         public int nOperando1 //primer operando de la operación
@@ -47,7 +47,6 @@ namespace lumia04
                 return _nResultadosPosibles;
             }
         }
-
 
 
         public void calculaValores() //calculamos la suma
