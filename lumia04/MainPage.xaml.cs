@@ -30,7 +30,7 @@ namespace lumia04
         public SpeechSynthesizer sinte = new SpeechSynthesizer(); //para el dime()
         datos _datos;   //objeto local de datos
         int nEspera = 1500; //tiempo en milisegundos de espera entre un reto y el otro
-
+        Windows.Storage.ApplicationDataCompositeValue composite;
 
         public MainPage()
         {
@@ -39,6 +39,12 @@ namespace lumia04
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            composite = new Windows.Storage.ApplicationDataCompositeValue();
+            composite["nExitos"] = 1;
+            composite["nFracasos"] = 2;
+            composite["nPartidas"] = 3;
+            this.txbExitos.Text = composite["nExitos"].ToString();
+
             reta();
 
 
@@ -111,13 +117,23 @@ namespace lumia04
         }
 
         private async void comprueba(int nRespuesta)
-        {
-            if (nRespuesta == _datos.nResultadoCorrecto) {
+        {           
+            if (nRespuesta == _datos.nResultadoCorrecto)
+            {
                 dime("Bien!!!!.");
                 await espera(); //espera un poco, para dar impacto
+
+                int i = Int32.Parse(this.composite["nExitos"].ToString()) + 1; //actualizar el valor del contador de éxitos            
+                this.composite["nExitos"] = i;
+                this.txbExitos.Text = i.ToString();
+
                 reta();         //y vuelve a empezar
             }
-            else dime("Me temo que no.");
+            else
+            {
+                dime("Me temo que no.");
+                //actualizar el valor del contador de fracasos
+            }
         }
 
         async Task espera()
@@ -125,5 +141,9 @@ namespace lumia04
             await Task.Delay(nEspera);
         }
 
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
     }
 }

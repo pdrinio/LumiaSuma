@@ -9,15 +9,17 @@
 
     <Grid Background="{ThemeResource AppBarItemForegroundThemeBrush}">
         <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Height="49" Margin="76,10,0,0" TextWrapping="Wrap" Text="SUMAS" VerticalAlignment="Top" Width="164" Foreground="White" FontSize="40" FontWeight="Bold"/>
-        <TextBlock x:Name="txbOperando1" HorizontalAlignment="Left" Height="76" Margin="151,78,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
-        <TextBlock x:Name="txbOperando2" HorizontalAlignment="Left" Height="111" Margin="151,199,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
-        <TextBlock x:Name="txbSigno" HorizontalAlignment="Left" Height="111" Margin="76,139,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
-        <TextBlock x:Name="txbLinea" HorizontalAlignment="Left" Height="111" Margin="22,258,0,0" TextWrapping="Wrap" Text="------------------" VerticalAlignment="Top" Width="303" Foreground="White" FontSize="72"/>
-        <TextBlock x:Name="txbResultado" HorizontalAlignment="Left" Height="111" Margin="131,339,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72" FontWeight="Bold"/>
+        <TextBlock x:Name="txbOperando1" HorizontalAlignment="Left" Height="76" Margin="151,63,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
+        <TextBlock x:Name="txbOperando2" HorizontalAlignment="Left" Height="111" Margin="151,179,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="60"/>
+        <TextBlock x:Name="txbSigno" HorizontalAlignment="Left" Height="111" Margin="76,124,0,0" TextWrapping="Wrap" Text="+" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbLinea" HorizontalAlignment="Left" Height="111" Margin="22,233,0,0" TextWrapping="Wrap" Text="------------------" VerticalAlignment="Top" Width="303" Foreground="White" FontSize="72"/>
+        <TextBlock x:Name="txbResultado" HorizontalAlignment="Left" Height="111" Margin="131,314,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="72" FontWeight="Bold"/>
 
         <MediaElement Name="media"  Visibility="Collapsed"/>
-        <Button x:Name="btnIzquierda" HorizontalAlignment="Left" Height="110" Margin="1,484,0,0" Content="10" VerticalAlignment="Top" Width="110" Foreground="White" FontSize="62" Click="btnIzquierda_Click" />
-        <Button x:Name="btnCentro" HorizontalAlignment="Left" Height="111" Margin="116,484,0,0" Content="10" VerticalAlignment="Top" Width="109" Foreground="White" FontSize="62" Click="btnCentro_Click" />
-        <Button x:Name="btnDerecha" HorizontalAlignment="Left" Height="111" Margin="231,484,0,0" Content="10" VerticalAlignment="Top" Width="114" Foreground="White" FontSize="62" Click="btnDerecha_Click" />
+        <Button x:Name="btnIzquierda" HorizontalAlignment="Left" Height="110" Margin="1,424,0,0" Content="10" VerticalAlignment="Top" Width="110" Foreground="White" FontSize="62" Click="btnIzquierda_Click" />
+        <Button x:Name="btnCentro" HorizontalAlignment="Left" Height="111" Margin="116,424,0,0" Content="10" VerticalAlignment="Top" Width="109" Foreground="White" FontSize="62" Click="btnCentro_Click" />
+        <Button x:Name="btnDerecha" HorizontalAlignment="Left" Height="111" Margin="231,424,0,0" Content="10" VerticalAlignment="Top" Width="114" Foreground="White" FontSize="62" Click="btnDerecha_Click" />
+        <Button x:Name="btnSalir" Content="SALIR" HorizontalAlignment="Left" Height="48" Margin="96,580,0,0" VerticalAlignment="Top" Width="144" Foreground="White" FontSize="22" Click="btnSalir_Click"/>
+        <TextBlock x:Name="txbExitos" HorizontalAlignment="Left" Height="36" Margin="326,18,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="29" Foreground="White" FontSize="18"/>
     </Grid>
 </Page>
