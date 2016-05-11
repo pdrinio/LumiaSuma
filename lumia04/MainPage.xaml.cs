@@ -38,11 +38,17 @@ namespace lumia04
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
+        {       //si nunca han seteado el valor, genera los valores
             composite = new Windows.Storage.ApplicationDataCompositeValue();
-            composite["nExitos"] = 1;
-            composite["nFracasos"] = 2;
-            composite["nPartidas"] = 3;
+
+            if (Int32.Parse(this.composite["bInstalado"].ToString()) == 0) 
+            {
+                composite["bInstalado"] = 1;
+                composite["nExitos"] = 0;
+                composite["nFracasos"] = 0;
+                composite["nPartidas"] = 0;
+            }
+            
             this.txbExitos.Text = composite["nExitos"].ToString();
 
             reta();
