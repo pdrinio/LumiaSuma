@@ -41,15 +41,15 @@ namespace lumia04
         {       //si nunca han seteado el valor, genera los valores
             composite = new Windows.Storage.ApplicationDataCompositeValue();
 
-            if (Int32.Parse(this.composite["bInstalado"].ToString()) == 0) 
-            {
-                composite["bInstalado"] = 1;
-                composite["nExitos"] = 0;
-                composite["nFracasos"] = 0;
-                composite["nPartidas"] = 0;
-            }
+            //if (Int32.Parse(this.composite["bInstalado"].ToString()) == 0) 
+            //{
+            //    composite["bInstalado"] = 1;
+            //    composite["nExitos"] = 0;
+            //    composite["nFracasos"] = 0;
+            //    composite["nPartidas"] = 0;
+            //}
             
-            this.txbExitos.Text = composite["nExitos"].ToString();
+            //this.txbExitos.Text = composite["nExitos"].ToString();
 
             reta();
 
@@ -63,10 +63,11 @@ namespace lumia04
                         
             this.txbResultado.Text = "?";
 
-            this.btnIzquierda.Content = _datos.nResultadosPosibles[0].ToString();
-            this.btnCentro.Content = _datos.nResultadosPosibles[1].ToString();
-            this.btnDerecha.Content = _datos.nResultadosPosibles[2].ToString();
-                
+            this.btn1.Content = _datos.nResultadosPosibles[0].ToString();
+            this.btn2.Content = _datos.nResultadosPosibles[1].ToString();
+            this.btn3.Content = _datos.nResultadosPosibles[2].ToString();
+            this.btn4.Content = _datos.nResultadosPosibles[3].ToString();
+
         }
 
 
@@ -88,7 +89,7 @@ namespace lumia04
 
         }
 
-        private void btnIzquierda_Click(object sender, RoutedEventArgs e)
+        private void btn1_Click(object sender, RoutedEventArgs e)
         {
             //preguntarle al usuario...
             String szRespuesta = ((Button)sender).Content.ToString();
@@ -101,7 +102,7 @@ namespace lumia04
 
 
 
-        private void btnCentro_Click(object sender, RoutedEventArgs e)
+        private void btn2_Click(object sender, RoutedEventArgs e)
         {
             //preguntarle al usuario...
             String szRespuesta = ((Button)sender).Content.ToString();
@@ -112,7 +113,17 @@ namespace lumia04
 
         }
 
-        private void btnDerecha_Click(object sender, RoutedEventArgs e)
+        private void btn3_Click(object sender, RoutedEventArgs e)
+        {
+            //preguntarle al usuario...
+            String szRespuesta = ((Button)sender).Content.ToString();
+            dime("¿" + szRespuesta + "?");
+
+            // y comprobarlo
+            comprueba(Int32.Parse(((Button)sender).Content.ToString()));
+        }
+
+        private void btn4_Click(object sender, RoutedEventArgs e)
         {
             //preguntarle al usuario...
             String szRespuesta = ((Button)sender).Content.ToString();
@@ -129,9 +140,9 @@ namespace lumia04
                 dime("Bien!!!!.");
                 await espera(); //espera un poco, para dar impacto
 
-                int i = Int32.Parse(this.composite["nExitos"].ToString()) + 1; //actualizar el valor del contador de éxitos            
-                this.composite["nExitos"] = i;
-                this.txbExitos.Text = i.ToString();
+                //int i = Int32.Parse(this.composite["nExitos"].ToString()) + 1; //actualizar el valor del contador de éxitos            
+                //this.composite["nExitos"] = i;
+                //this.txbExitos.Text = i.ToString();
 
                 reta();         //y vuelve a empezar
             }

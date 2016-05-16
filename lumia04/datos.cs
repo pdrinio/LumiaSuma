@@ -9,7 +9,7 @@ namespace lumia04
     class datos
     {
         public Random rnd = new Random();
-        public int[] _nResultadosPosibles = new int[3]; //dos aleatorios, y el bueno (en un orden aleatorio); son las 3 posibilidades que se le dan
+        public int[] _nResultadosPosibles = new int[4]; //tres aleatorios, y el bueno (en un orden aleatorio); son las 3 posibilidades que se le dan
         int _nResultadoCorrecto; 
         int _nOperando1, _nOperando2;  //operandos aleatorios
         
@@ -71,10 +71,10 @@ namespace lumia04
             _nResultadoCorrecto = _nOperando1 + _nOperando2; //calculamos la suma de verdad
 
             // Envío el resultado correcto a una posición aleatoria del array de posibles            
-            _nResultadosPosibles[rnd.Next(0, 2)] = _nResultadoCorrecto;
+            _nResultadosPosibles[rnd.Next(0, 3)] = _nResultadoCorrecto;
 
             //y rellenamos los demás
-            for (int j = 0; j < 3; j++)  
+            for (int j = 0; j < 4; j++)  
             {
                 for (int i = 0; i < 100; i++)     //vamos a randomizar mejor
                 {
@@ -96,6 +96,7 @@ namespace lumia04
             this._nResultadosPosibles[0] = 0;
             this._nResultadosPosibles[1] = 0;
             this._nResultadosPosibles[2] = 0;
+            this._nResultadosPosibles[3] = 0;
         }
 
     }
