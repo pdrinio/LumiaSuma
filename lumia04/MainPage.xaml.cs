@@ -29,8 +29,8 @@ namespace lumia04
     {
         public SpeechSynthesizer sinte = new SpeechSynthesizer(); //para el dime()
         datos _datos;   //objeto local de datos
-        int nEspera = 1500; //tiempo en milisegundos de espera entre un reto y el otro
-        Windows.Storage.ApplicationDataCompositeValue composite;
+        int nEspera = 1200; //tiempo en milisegundos de espera entre un reto y el otro
+        Windows.Storage.ApplicationDataContainer localSettings;
 
         public MainPage()
         {
@@ -39,21 +39,28 @@ namespace lumia04
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {       //si nunca han seteado el valor, genera los valores
-            composite = new Windows.Storage.ApplicationDataCompositeValue();
+            localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            Object valor = localSettings.Values["nExitos"];
 
-            //if (Int32.Parse(this.composite["bInstalado"].ToString()) == 0) 
-            //{
-            //    composite["bInstalado"] = 1;
-            //    composite["nExitos"] = 0;
-            //    composite["nFracasos"] = 0;
-            //    composite["nPartidas"] = 0;
-            //}
+            try
+            {
+                if (valor == null)
+                {
+                    localSettings.Values["nExitos"] = 0;
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            this.txbExitos.Text = localSettings.Values["nExitos"].ToString();
             
-            //this.txbExitos.Text = composite["nExitos"].ToString();
 
             reta();
-
-
+            
         }
 
         private void actualizaReto(datos _datos)
@@ -139,10 +146,10 @@ namespace lumia04
             {
                 dime("Bien!!!!.");
                 await espera(); //espera un poco, para dar impacto
-
-                //int i = Int32.Parse(this.composite["nExitos"].ToString()) + 1; //actualizar el valor del contador de éxitos            
-                //this.composite["nExitos"] = i;
-                //this.txbExitos.Text = i.ToString();
+                
+                int i = Int32.Parse(this.localSettings.Values["nExitos"].ToString()) + 1; //actualizar el valor del contador de éxitos            
+                this.localSettings.Values["nExitos"] = i;
+                this.txbExitos.Text = i.ToString();
 
                 reta();         //y vuelve a empezar
             }
