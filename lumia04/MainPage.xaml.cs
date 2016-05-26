@@ -38,27 +38,9 @@ namespace lumia04
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {       //si nunca han seteado el valor, genera los valores
-            localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            Object valor = localSettings.Values["nExitos"];
-
-            try
-            {
-                if (valor == null)
-                {
-                    localSettings.Values["nExitos"] = 0;
-                }
-                
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-            this.txbExitos.Text = localSettings.Values["nExitos"].ToString();
+        {
+            contadores(); //recupera el almacén local, y envía muestra en pantalla el contador de éxitos
             
-
             reta();
             
         }
@@ -88,7 +70,7 @@ namespace lumia04
         }
 
 
-        private async  void dime(string message)
+        private async void dime(string message)
         {
             var stream = await sinte.SynthesizeTextToStreamAsync(message);
             media.SetSource(stream, stream.ContentType);
@@ -148,16 +130,40 @@ namespace lumia04
                 await espera(); //espera un poco, para dar impacto
                 
                 int i = Int32.Parse(this.localSettings.Values["nExitos"].ToString()) + 1; //actualizar el valor del contador de éxitos            
-                this.localSettings.Values["nExitos"] = i;
+                this.localSettings.Values["nExitos"] = i;          
                 this.txbExitos.Text = i.ToString();
+                
+                actualizaRatio(); //actualizar el ratio
 
                 reta();         //y vuelve a empezar
             }
             else
             {
+                //falló: damos mensaje, y actualizamos contador fracasos y ratio
                 dime("Me temo que no.");
-                //actualizar el valor del contador de fracasos
+
+                int i = Int32.Parse(this.localSettings.Values["nFracasos"].ToString()) + 1; //actualizar el valor del contador de fracasos            
+                this.localSettings.Values["nFracasos"] = i;
+                this.txbFracasos.Text = i.ToString();
+
+                actualizaRatio(); //actualizar el ratio
             }
+        }
+
+        public void actualizaRatio ()
+        {   
+            //me traigo los valores a memoria, calculo
+            int nExitos = Int32.Parse(this.localSettings.Values["nExitos"].ToString());
+            int nFracasos = Int32.Parse(this.localSettings.Values["nFracasos"].ToString());
+            double suma = nExitos + nFracasos;
+            double cociente = nExitos / suma;
+            double porcentaje = cociente * 100;
+            int nRatio = (int)porcentaje;
+
+            this.localSettings.Values["nRatio"] = nRatio; //actualizo el valor en datos de aplicación
+
+            this.txbRatio.Text = nRatio.ToString() + "%"; //y presento en pantalla
+
         }
 
         async Task espera()
@@ -168,6 +174,33 @@ namespace lumia04
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();
+        }
+
+        private void contadores()
+        {
+            //si nunca han seteado el valor, genera los valores
+            localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            Object valor = localSettings.Values["nRatio"];
+
+            try
+            {
+                if (valor == null)
+                {
+                    localSettings.Values["nExitos"] = 0;
+                    localSettings.Values["nFracasos"] = 0;
+                    localSettings.Values["nRatio"] = 0;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            //en cualquier caso, presento los valores en pantalla
+            this.txbExitos.Text = localSettings.Values["nExitos"].ToString();
+            this.txbFracasos.Text = localSettings.Values["nFracasos"].ToString();
+            this.txbRatio.Text = localSettings.Values["nRatio"].ToString() +"%";
         }
     }
 }

@@ -22,5 +22,7 @@
         <Button x:Name="btn4" HorizontalAlignment="Left" Height="73" Margin="256,424,0,0" Content="10" VerticalAlignment="Top" Width="94" Foreground="White" FontSize="50" Click="btn4_Click" />
         <Button x:Name="btnSalir" Content="SALIR" HorizontalAlignment="Left" Height="48" Margin="96,580,0,0" VerticalAlignment="Top" Width="144" Foreground="White" FontSize="22" Click="btnSalir_Click"/>
         <TextBlock x:Name="txbExitos" HorizontalAlignment="Left" Height="36" Margin="326,18,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="29" Foreground="White" FontSize="18"/>
+        <TextBlock x:Name="txbFracasos" HorizontalAlignment="Left" Height="36" Margin="326,63,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="29" Foreground="White" FontSize="18"/>
+        <TextBlock x:Name="txbRatio" HorizontalAlignment="Left" Height="36" Margin="307,108,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="48" Foreground="White" FontSize="18"/>
     </Grid>
 </Page>
